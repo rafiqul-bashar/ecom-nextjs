@@ -1,6 +1,6 @@
 import React from "react";
 import { Header, Footer } from "../../components";
-export default function singleProduct() {
+export default function SingleProduct() {
   return (
     <>
       <Header />

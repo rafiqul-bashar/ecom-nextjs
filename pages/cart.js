@@ -1,7 +1,7 @@
 import React from "react";
 import { Footer, Header } from "../components";
 
-export default function cart() {
+export default function Cart() {
   return (
     <>
       <Header />
