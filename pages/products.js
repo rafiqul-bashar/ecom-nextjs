@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Header, Footer } from "../components";
 import ProductCard from "../components/home/ProductCard";
-export default function products({ products }) {
+export default function Products({ products }) {
   const categoriesNames = [...new Set(products.map((p) => p.category))];
 
   const switchDisplayProducts = (parameter) => {
@@ -18,10 +18,10 @@ export default function products({ products }) {
         return "all";
     }
   };
-  const [productsToShow, setProductsToShow] = useState("all");
-  const [productsInShow, setProductsInShow] = useState([]);
+  const [productsToShow, setProductsToShow] = React.useState("all");
+  const [productsInShow, setProductsInShow] = React.useState([]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (productsToShow === "all") {
       setProductsInShow(products);
     } else {
