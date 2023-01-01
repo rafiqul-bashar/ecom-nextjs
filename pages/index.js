@@ -1,8 +1,5 @@
-import { setLazyProp } from "next/dist/server/api-utils";
 import Head from "next/head";
-import { useEffect, useState } from "react";
-import { Header, HeroSection, ProducctsSection } from "../components";
-import ProductCard from "../components/home/ProductCard";
+import { HeroSection, ProducctsSection } from "../components";
 import Layout from "../components/Layout";
 export default function Home({ products }) {
   return (

@@ -13,7 +13,7 @@ export default function Layout({ children }) {
     }
   }, []);
   return (
-    <div>
+    <div className="dark:bg-gray-900">
       <Header />
       <div className="p-5">
         {success && (

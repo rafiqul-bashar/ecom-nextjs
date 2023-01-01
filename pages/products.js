@@ -32,13 +32,13 @@ export default function Products({ products }) {
     }
   }, [productsToShow]);
 
-  console.log(productsInShow);
+  // console.log(productsInShow);
 
   return (
     <>
       <Header />
       <div className="flex flex-col md:flex-row">
-        <aside className=" md:h-screen p-6 sm:w-60 bg-gray-900 text-gray-100">
+        <aside className=" md:h-screen p-6 sm:w-60 dark:bg-gray-900 dark:text-gray-100">
           <nav className="space-y-8 text-sm">
             <div className="space-y-2">
               <h2 className="text-sm font-semibold tracking-widest uppercase dark:text-gray-400">
@@ -75,7 +75,7 @@ export default function Products({ products }) {
             </div>
           </nav>
         </aside>
-        <div className="h-screen py-4 overflow-auto bg-gray-800">
+        <div className="h-screen py-4 overflow-auto dark:bg-gray-900">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {productsInShow?.map((product) => (
               <ProductCard key={product.id} {...product} />

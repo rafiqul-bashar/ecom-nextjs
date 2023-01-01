@@ -16,10 +16,21 @@ export default function ProducctsSection({ products }) {
   // if (phrase) {
   //   products = products.filter((p) => p.name.toLowerCase().includes(phrase));
   // }
-  console.log(products);
+
   return (
     <>
-      <div>
+      <div className="">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {categoriesNames.map((categoryName) => (
+            <h2
+              key={categoryName}
+              className="capitalize font-semibold tracking-wide cursor-pointer p-2 text-white bg-violet-400 text-center dark:text-violet-400 dark:bg-gray-800"
+            >
+              {categoryName}
+            </h2>
+          ))}
+        </div>
+        <br />
         {productLoading ? (
           <div className="flex flex-col m-8 rounded shadow-md w-60 sm:w-80 animate-pulse h-96">
             <div className="h-48 rounded-t  bg-gray-700"></div>
@@ -30,24 +41,13 @@ export default function ProducctsSection({ products }) {
             </div>
           </div>
         ) : (
-          categoriesNames.map((categoryName) => (
-            <div key={categoryName}>
-              {products.find((p) => p.category === categoryName) && (
-                <div>
-                  <h2 className="text-2xl py-5 capitalize">{categoryName}</h2>
-                  <div className="flex -mx-5 overflow-x-scroll snap-x scrollbar-hide">
-                    {products
-                      .filter((p) => p.category === categoryName)
-                      .map((productInfo) => (
-                        <div key={productInfo.id} className="px-5 snap-start">
-                          <ProductCard {...productInfo} />
-                        </div>
-                      ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          ))
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {products?.map((productInfo) => (
+              <div key={productInfo.id} className="px-5 snap-start">
+                <ProductCard {...productInfo} />
+              </div>
+            ))}
+          </div>
         )}
       </div>
       {/* Paginatin */}
