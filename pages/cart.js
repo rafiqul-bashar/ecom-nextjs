@@ -12,7 +12,7 @@ import Link from "next/link";
 
 const EmptyCart = () => {
   return (
-    <div className=" w-screen dark:bg-gray-900 text-center dark:text-gray-100 py-12">
+    <div className=" w-screen bg-gray-100 text-center text-gray-800 py-12">
       <img
         className="h-0 w-28 mx-auto my-2"
         src="https://www.freepnglogos.com/uploads/shopping-cart-png/shopping-cart-svg-png-icon-download-28.png"
@@ -22,7 +22,7 @@ const EmptyCart = () => {
         Your cart is currently empty
       </h2>
       <Link href="/products">
-        <button className="px-8 py-2 rounded-md my-4 border-blue-400 border ">
+        <button className="px-8 py-2 rounded-md my-4 border-primary border-2 bg-primary font-semibold text-white tracking-wider cursor-pointer focus:border-white ">
           Return to shop
         </button>
       </Link>

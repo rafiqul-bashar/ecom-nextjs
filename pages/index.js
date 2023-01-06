@@ -1,7 +1,16 @@
 import Head from "next/head";
-import { HeroSection, ProducctsSection } from "../components";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { Footer, HeroSection, ProducctsSection } from "../components";
 import Layout from "../components/Layout";
+import { saveProductToRedux } from "../store/slices/productSlice";
 export default function Home({ products }) {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (products.length) {
+      dispatch(saveProductToRedux(products));
+    }
+  }, []);
   return (
     <>
       <Head>
@@ -10,9 +19,9 @@ export default function Home({ products }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="">
+      <main className="w-screen h-screen overflow-auto">
         <Layout>
-          <HeroSection />
+          {/* <HeroSection /> */}
           {/* <input
             value={phrase}
             onChange={(e) => setPhrase(e.target.value)}
@@ -21,6 +30,7 @@ export default function Home({ products }) {
             className="bg-gray-200 w-full py-2 px-4 rounded-xl"
           /> */}
           <ProducctsSection products={products} />
+          <Footer />
         </Layout>
       </main>
     </>
@@ -31,6 +41,7 @@ export async function getServerSideProps() {
   const products = await fetch("https://fakestoreapi.com/products").then(
     (response) => response.json()
   );
+
   return {
     props: {
       products: JSON.parse(JSON.stringify(products)),

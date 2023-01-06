@@ -1,10 +1,7 @@
-import { useContext, useEffect, useState } from "react";
-import Footer from "./Footer";
-import Header from "./Header";
-import { ProductsContext } from "./ProductsContext";
+import { useEffect, useState } from "react";
+import Header, { MobileMenu } from "./Header";
 
 export default function Layout({ children }) {
-  const { setSelectedProducts } = useContext(ProductsContext);
   const [success, setSuccess] = useState(false);
   useEffect(() => {
     if (window.location.href.includes("success")) {
@@ -13,9 +10,9 @@ export default function Layout({ children }) {
     }
   }, []);
   return (
-    <div className="dark:bg-gray-900">
+    <div>
       <Header />
-      <div className="p-5">
+      <div className="p-4 w-screen h-[64vh]">
         {success && (
           <div className="mb-5 bg-green-400 text-white text-lg p-5 rounded-xl">
             Thanks for your order!
@@ -23,7 +20,8 @@ export default function Layout({ children }) {
         )}
         {children}
       </div>
-      <Footer />
+      <MobileMenu />
+      {/* <Footer /> */}
     </div>
   );
 }
