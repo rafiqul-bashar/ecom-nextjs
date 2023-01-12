@@ -37,7 +37,7 @@ export default function ProductCard({
     );
   }
   return (
-    <div className="h-[42vh] bg-white/90 p-2 hover:shadow-lg md:h-[380px] md:w-[188px]">
+    <div className="h-[36vh]  bg-white/90 p-2 hover:shadow-lg md:h-[400px] md:w-[188px]">
       <Link href={`/product/${id}`} className=" block overflow-hidden group">
         <img
           src={image}
@@ -46,12 +46,12 @@ export default function ProductCard({
         />
 
         <div className="">
-          <h3 className="uppercase text-xs  group-hover:underline group-hover:underline-offset-4 text-gray-600">
+          <h3 className="uppercase text-xs  group-hover:underline group-hover:underline-offset-4 text-gray-600 mb-1">
             {category}
           </h3>
 
-          <h3 className=" text-sm md:text-base uppercase   group-hover:underline group-hover:underline-offset-4 text-clip overflow-hidden">
-            {limit(title, 26)}
+          <h3 className="h-20 md:h-18 overflow-hidden text-sm  uppercase   group-hover:underline group-hover:underline-offset-4 ">
+            {title}
           </h3>
           <br />
 
@@ -63,10 +63,7 @@ export default function ProductCard({
               </span>
               <span className="tracking-wider text-sm ml-2"> USD </span>
             </div>
-            <button
-              className="bg-primary text-white w-full py-1"
-              onClick={handleAddtoCart}
-            >
+            <button className="bg-primary text-white w-full py-1">
               Buy Now
             </button>
           </div>

@@ -21,7 +21,7 @@ export default function Home({ products }) {
       </Head>
       <main className="w-screen h-screen overflow-auto">
         <Layout>
-          {/* <HeroSection /> */}
+          <HeroSection />
           {/* <input
             value={phrase}
             onChange={(e) => setPhrase(e.target.value)}

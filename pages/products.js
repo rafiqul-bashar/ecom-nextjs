@@ -1,5 +1,6 @@
 import React from "react";
 import { Footer } from "../components";
+import ProductCard from "../components/home/ProductCard";
 import Layout from "../components/Layout";
 
 function limit(string = "", limit = 0) {
@@ -22,17 +23,13 @@ export default function Products({ products }) {
     }
   }, [productsToShow]);
 
-  const handleOnClick = () => {
-    navigate();
-  };
-
   return (
     <Layout>
-      <div className="grid grid-cols-3">
-        <aside className="h-screen overflow-auto text-left col-span-1 bg-gray-100 ">
-          <nav className="space-y-8 text-sm">
+      <div className=" container mx-auto grid grid-cols-5">
+        <aside className="h-screen overflow-auto text-left col-span-1 ">
+          <nav className="space-y-8 md:mt-16">
             <div className="space-y-2 ">
-              <h2 className="text-x font-semibold tracking-wider uppercase ">
+              <h2 className="text-sm font-semibold tracking-wider uppercase ">
                 Catagories
               </h2>
               <div className="flex flex-col space-y-1">
@@ -41,7 +38,7 @@ export default function Products({ products }) {
                     onClick={() => {
                       setProductsToShow("all");
                     }}
-                    className="text-sm cursor-pointer py-2 capitalize"
+                    className=" text-base cursor-pointer py-2 capitalize"
                   >
                     All Products
                   </h2>
@@ -54,7 +51,7 @@ export default function Products({ products }) {
                           onClick={() => {
                             setProductsToShow(categoryName);
                           }}
-                          className="text-sm cursor-pointer py-4 capitalize"
+                          className="text-base cursor-pointer py-4 capitalize"
                         >
                           {categoryName}
                         </h2>
@@ -66,20 +63,24 @@ export default function Products({ products }) {
             </div>
           </nav>
         </aside>
-        <div className="h-screen py-4 overflow-auto bg-gray-100 col-span-2">
+        <div className="h-screen py-4 overflow-auto col-span-4">
+          <h2 className="mx-auto my-2 font-bold tracking-widest text-center capitalize text-2xl">
+            {productsToShow} Products
+          </h2>
+          <hr className="py-2" />
           <div className="grid grid-cols-3 md:grid-cols-4 gap-6">
             {productsInShow?.map((product) => (
-              // <ProductCard key={product.id} {...product} />
-              <div className="py-4" key={product?.id}>
-                <img
-                  src={product?.image}
-                  alt={product?.title}
-                  className="h-12 w-12 mx-auto "
-                />
-                <h2 className="text-xs clip mx-auto ">
-                  {limit(product?.title, 18) + "..."}
-                </h2>
-              </div>
+              <ProductCard key={product.id} {...product} />
+              // <div className="py-4" key={product?.id}>
+              //   <img
+              //     src={product?.image}
+              //     alt={product?.title}
+              //     className="h-12 w-12 mx-auto "
+              //   />
+              //   <h2 className="text-xs clip mx-auto ">
+              //     {limit(product?.title, 18) + "..."}
+              //   </h2>
+              // </div>
             ))}
           </div>
         </div>

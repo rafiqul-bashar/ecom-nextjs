@@ -18,7 +18,7 @@ export default function ProducctsSection({ products }) {
 
   return (
     <>
-      <div className="">
+      <div className="container mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {categoriesNames.map((categoryName) => (
             <h2
@@ -40,7 +40,7 @@ export default function ProducctsSection({ products }) {
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-6  gap-x-2 md:px-2 gap-y-4">
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-6">
             {products?.map((productInfo) => (
               <div key={productInfo.id} className="px-2 snap-start">
                 <ProductCard {...productInfo} />
@@ -50,7 +50,7 @@ export default function ProducctsSection({ products }) {
         )}
       </div>
       {/* Paginatin */}
-      <Pagination />
+      {/* <Pagination /> */}
     </>
   );
 }

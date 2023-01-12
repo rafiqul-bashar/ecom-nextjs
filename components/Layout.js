@@ -12,7 +12,7 @@ export default function Layout({ children }) {
   return (
     <div>
       <Header />
-      <div className="p-4 w-screen h-[64vh]">
+      <div className=" h-[64vh]">
         {success && (
           <div className="mb-5 bg-green-400 text-white text-lg p-5 rounded-xl">
             Thanks for your order!

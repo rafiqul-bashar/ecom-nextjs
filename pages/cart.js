@@ -46,7 +46,7 @@ export default function Cart() {
       <Header />
       {itemsQuantity == 0 && <EmptyCart />}
       {itemsQuantity !== 0 && (
-        <div className="w-screen dark:bg-gray-900 flex justify-center dark:text-gray-100">
+        <div className="w-screen text-gray-900 flex justify-center bg-gray-100">
           <div className="flex flex-col md:w-[60vw] p-6 space-y-4 sm:p-10  ">
             <h2 className="text-xl font-semibold">Your cart</h2>
             <ul className="flex flex-col divide-y divide-gray-700">
@@ -58,7 +58,7 @@ export default function Cart() {
                   >
                     <div className="flex w-full space-x-2 sm:space-x-4">
                       <img
-                        className="flex-shrink-0 object-cover w-20 h-20  border-transparent rounded outline-none sm:w-32 sm:h-32  bg-gray-500"
+                        className="flex-shrink-0 object-contain w-20 h-20  border-transparent rounded outline-none sm:w-32 sm:h-32 "
                         src={item.image}
                         alt={item.title}
                       />
@@ -70,13 +70,14 @@ export default function Cart() {
                             </h3>
                             {/* <p className="text-sm  text-gray-400">Classic</p> */}
                           </div>
-                          <div className="text-right">
+                          <div className="flex items-center space-x-8">
                             <p className="text-lg font-semibold">
                               {item.price}$
                             </p>
-                            {/* <p className="text-sm line-through  text-gray-600">
-                              75.50€
-                            </p> */}
+                            <p className="text-lg font-semibold">X</p>
+                            <p className="text-lg font-semibold">
+                              {item.cartQuantity}
+                            </p>
                           </div>
                         </div>
                         <div className="flex text-sm divide-x">
